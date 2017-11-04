@@ -504,6 +504,7 @@ function handleError(err) {
 			'fonts',
 			'favicon',
 			'html-prod',
+			'scss-prod',
 			'jsHead-prod',
 			'jsFoot-prod',
 			'img-prod',
