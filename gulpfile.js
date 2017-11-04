@@ -464,3 +464,19 @@ function handleError(err) {
 		.on("error", gutil.log)
 		.pipe(gulp.dest("dist/img/favicons/"));
 });
+
+
+
+/* *************************
+	I - BUILD
+************************* */
+	gulp.task('build', [
+			'move', 
+			'fonts',
+			'favicon',
+			'html',
+			'jsHead',
+			'jsFoot',
+			'img',
+		] , function() {
+	});
