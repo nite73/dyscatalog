@@ -125,12 +125,6 @@ function handleError(err) {
 
 	/* 2 - COMPILE scss */
 	gulp.task('scss', function () {
-		if(minify_css){
-			var css_refactoring = cssmin();
-		} else {
-			var css_refactoring = gutil.noop();
-		}
-
 		return gulp.src('src/**/*.scss')
 			.pipe(sourcemaps.init())
 			.pipe(bulkSass())
@@ -138,11 +132,24 @@ function handleError(err) {
 			.pipe(autoprefixer({
 				browsers: ['last 2 versions']
 			}))
-			.pipe(css_refactoring)
 			.pipe(sourcemaps.write('.'))
 			.pipe(rename({dirname: ''}))
 			.pipe(gulp.dest('dist/css/'))
 			.pipe(browserSync.stream());
+	});
+
+	gulp.task('scss-prod', function () {
+		return gulp.src('src/**/*.scss')
+			.pipe(sourcemaps.init())
+			.pipe(bulkSass())
+			.pipe(sass().on('error', sass.logError))
+			.pipe(autoprefixer({
+				browsers: ['last 2 versions']
+			}))
+			.pipe(cssmin())
+			.pipe(sourcemaps.write('.'))
+			.pipe(rename({dirname: ''}))
+			.pipe(gulp.dest('dist/css/'))
 	});
 
 	gulp.task('scss-watch', ['scss'], browserSync.reload);
@@ -153,19 +160,13 @@ function handleError(err) {
 
 	/* 3 - COMPILE html */
 	gulp.task('html', function () {
-		if(minify_html){
-			var html_refactoring = htmlmin({collapseWhitespace: true, removeComments: true});
-		} else {
-			var html_refactoring = prettify({
+		return gulp.src(['./src/4-pages/**/*.html', '!src/4-pages/_name-of-page/_name-of-page.html'])
+			.pipe(fileinclude().on('error', handleError))
+			.pipe(prettify({
 				indent_size: 4,
 				unformatted: ['pre', 'code'],
 				indent_inner_html: true
-			});
-		}
-
-		return gulp.src(['./src/4-pages/**/*.html', '!src/4-pages/_name-of-page/_name-of-page.html'])
-			.pipe(fileinclude().on('error', handleError))
-			.pipe(html_refactoring)
+			}))
 			.pipe(inlinesource({
 				compress: true,
 				rootpath: './dist/'
@@ -174,20 +175,31 @@ function handleError(err) {
 			.pipe(gulp.dest('./dist/'))
 			.pipe(browserSync.stream());
 	});
+	
+	/* 3 - COMPILE html */
+	gulp.task('html-prod', function () {
+		return gulp.src(['./src/4-pages/**/*.html', '!src/4-pages/_name-of-page/_name-of-page.html'])
+			.pipe(fileinclude().on('error', handleError))
+			.pipe(htmlmin({collapseWhitespace: true, removeComments: true}))
+			.pipe(rename({dirname: ''}))
+			.pipe(gulp.dest('./dist/'))
+	});
 
 
 	/* 4 - SCRIPT HEAD */
 	gulp.task('jsHead', function () {
-		if(minify_js){
-			var js_refactoring = uglify();
-		} else {
-			var js_refactoring = gutil.noop();
-		}
-
 		return gulp.src('src/5-else/ts/libs/**/*.js')
 			.pipe(sourcemaps.init())
 			.pipe(concat('script-head.js'))
-			.pipe(js_refactoring)
+			.pipe(sourcemaps.write('.'))
+			.pipe(gulp.dest('dist/js'));
+	});
+
+	gulp.task('jsHead-prod', function () {
+		return gulp.src('src/5-else/ts/libs/**/*.js')
+			.pipe(sourcemaps.init())
+			.pipe(concat('script-head.js'))
+			.pipe(uglify())
 			.pipe(sourcemaps.write('.'))
 			.pipe(gulp.dest('dist/js'));
 	});
@@ -211,9 +223,27 @@ function handleError(err) {
 			.pipe(gulp.dest('dist/js'));
 	});
 
+	gulp.task('jsFoot-prod', function () {
+		return gulp.src(['src/**/*.ts', '!src/**/*.d.ts', '!src/5-else/ts/libs/**/*.js'])
+			.pipe(sourcemaps.init())
+			.pipe(ts({
+				noImplicitAny: true,
+				out: 'script-foot.js'
+			}))
+			.pipe(sourcemaps.write('.'))
+			.pipe(gulp.dest('dist/js'));
+	});
+
 
 	/* 6 - COMPRESS img */
 	gulp.task('img', () => {
+		return gulp.src(['src/**/*.jpg', 'src/**/*.png', 'src/**/*.gif', 'src/**/*.jpeg', '!src/5-else/img/favicon.png'])
+			.pipe(rename({dirname: ''}))
+			.pipe(gulp.dest('dist/img'))
+			.pipe(browserSync.stream());
+	});
+
+	gulp.task('img-prod', () => {
 		return gulp.src(['src/**/*.jpg', 'src/**/*.png', 'src/**/*.gif', 'src/**/*.jpeg', '!src/5-else/img/favicon.png'])
 			.pipe(imagemin({
 				progressive: true,
@@ -222,7 +252,6 @@ function handleError(err) {
 			}))
 			.pipe(rename({dirname: ''}))
 			.pipe(gulp.dest('dist/img'))
-			.pipe(browserSync.stream());
 	});
 
 
@@ -474,9 +503,9 @@ function handleError(err) {
 			'move', 
 			'fonts',
 			'favicon',
-			'html',
-			'jsHead',
-			'jsFoot',
-			'img',
+			'html-prod',
+			'jsHead-prod',
+			'jsFoot-prod',
+			'img-prod',
 		] , function() {
 	});
