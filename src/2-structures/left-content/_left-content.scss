@@ -1,0 +1,55 @@
+.S--left-content {
+	padding-bottom: 40px;
+
+	@include breakpoint-small {
+		height: calc(100vh - 144px);
+		padding-bottom: 0;
+		position: sticky;
+		display: block;
+		top: 104px;
+	} 
+
+	.lc--flex-wrap {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+
+		p{
+			margin-top: auto;
+			margin-bottom: 40px;
+			order: 1;
+
+			@include breakpoint-small {
+				margin-bottom: 0;
+				order: 2;
+			}
+		}
+	}
+
+	.lc--flex-wrap > * {
+		order: 2;
+
+		@include breakpoint-small {
+			order: 1;
+		} 
+	}
+
+	.md-input-container .md-icon:not(.md-icon-delete):after {
+		display: none
+	}
+
+	.md-theme-default.md-button:not([disabled]).md-raised:not(.md-icon-button) {
+		align-self: flex-start;
+		background: transparent;
+		border: 1px solid rgba(0,0,0,.12);
+		background: transparent;
+		font-size: 11px;
+		min-height: auto;
+		height: auto;
+		padding: 10px 10px 8px 10px;
+		line-height: 1;
+		min-width: auto;
+		margin-left: 0;
+		box-shadow: none;
+	}
+}

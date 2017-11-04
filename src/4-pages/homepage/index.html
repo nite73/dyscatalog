@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html lang="fr" class="P--homepage">
+@@include('../../5-else/html/_head.html', {"title": "Homepage"})
+
+
+<body class="L--default">
+	<div id="app"   v-cloak>
+		<!-- *******************************************************
+		*
+		*
+		*   HEADER
+		*
+		*
+		******************************************************** -->
+		@@include('../../2-structures/header/_header.html')
+		<!-- *******************************************************
+		*
+		*
+		*    / HEADER
+		*
+		*
+		******************************************************** -->
+
+
+
+
+
+		<!-- *******************************************************
+		*
+		*
+		*   MAIN
+		*
+		*
+		******************************************************** -->
+		<div role="main" class="S--main" id="content">
+			@@include('../../1-components/sidenav/_sidenav.html')
+
+
+			<md-dialog md-open-from="#about" md-close-to="#about" ref="dialog1">
+				<md-dialog-title>Une orthophoniste et un développeur web.</md-dialog-title>
+
+				<md-dialog-content>
+					<h2>Une orthophoniste et un développeur web.</h2>
+
+					<p>Une passion pour leurs métiers respectifs. Un soir d'été à Montréal. Une discussion sur la terrasse.</p>
+
+					<p><b>Lui :</b> "Je suis en train d'apprendre un nouveau langage de développement web, tu n'aurais pas une idée pour que je
+						puisse m'entraîner, en créant quelque chose qui serait utile pour toi dans ton métier ?"<br><b>Elle :</b> "Tu veux une idée,
+						là maintenant ?"<br><b>Lui :</b> "Ben oui, mais tu peux réfléchir un peu si tu veux..."<br><b>Elle :</b> "Ok, alors peut-être
+						un site où on pourrait référencer tous les outils technologiques qui existent pour aider nos patients à surmonter leur handicap.
+						Il y en a de plus en plus qui arrivent sur le marché ces dernières années et je ne suis peut-être pas à la seule à m'y perdre
+						parfois..."<br> 
+					</p>
+
+					<p>Le projet était né ! Et quelques journées de travail plus tard, notre programme était prêt.</p>
+
+					<p><b>Elle :</b> Un grand merci à toutes les collègues qui ont enrichi le contenu du site, et à toutes les personnes qui nous
+						ont aidés à améliorer cet outil de près ou de loin. Merci à Lui pour sa générosité et sa patience. N'oublions pas que le
+						meilleur moyen pour choisir un outil est de l'essayer, pensez aux versions d'essai fournies par les fabricants.
+					</p>
+
+					<p><b>Lui :</b> Si vous souhaitez corriger ou ajouter des outils, <a href="mailto:constraintsolver@gmail.com">contactez-moi</a>.</p>
+				</md-dialog-content>
+
+				<md-dialog-actions>
+					<md-button class="md-primary" @click.native="closeDialog('dialog1')">J'ai tout lu</md-button>
+				</md-dialog-actions>
+			</md-dialog>
+
+
+			<md-layout :md-gutter="40">
+				<md-layout>
+					@@include('../../2-structures/left-content/_left-content.html')
+				</md-layout>
+
+				<md-layout md-flex-small="100" md-flex-medium="75" md-flex-large="75" md-flex-xlarge="75" class="U--align-content-start    list-item--wrapper">
+					@@include('../../1-components/dys-product/_dys-product.html')
+				</md-layout>
+			</md-layout>
+		</div>
+		<!-- *******************************************************
+		*
+		*
+		*   / MAIN
+		*
+		*
+		******************************************************** -->
+
+
+
+
+		
+		@@include('../../5-else/html/_foot.html')
+	</div>
+</body>
+
+</html>

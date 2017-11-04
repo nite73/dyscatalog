@@ -1,0 +1,18 @@
+.S--header {
+    @include breakpoint-medium {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+    }
+    
+    .md-theme-default.md-toolbar {
+        background-color: transparent;
+    }
+
+    .md-title {
+        text-transform: capitalize;
+        font-size: 30px;
+        margin-left: 30px;
+        color: #e9fca9;
+    }
+}

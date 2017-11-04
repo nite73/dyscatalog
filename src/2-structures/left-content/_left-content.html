@@ -1,0 +1,43 @@
+<div class="S--left-content">
+	<div class="lc--flex-wrap">
+		<form novalidate @submit.stop.prevent="submit">
+			<md-input-container>
+				<md-icon>search</md-icon>
+				<label>Recherche</label>
+				<md-input v-model="filterName" type="text"></md-input>
+			</md-input-container>
+		</form>
+
+
+		<form novalidate @submit.stop.prevent="submit">
+			<div>
+				<md-radio v-model="filterCat" id="my-test0" name="my-group1" md-value="Toutes catégories">Toutes catégories</md-radio>
+			</div>
+
+			<div>
+				<md-radio v-model="filterCat" id="my-test1" name="my-group1" md-value="Aide à la lecture">Aide à la lecture</md-radio>
+			</div>
+
+			<div>
+				<md-radio v-model="filterCat" v-on:click="checkRadioOnOff($index)" id="my-test2" name="my-group1" md-value="Aide à l'écriture">Aide à l'écriture</md-radio>
+			</div>
+
+			<div>
+				<md-radio v-model="filterCat" v-on:click="checkRadioOnOff($index)" id="my-test3" name="my-group1" md-value="Aide à la communication">Aide à la communication</md-radio>
+			</div>
+
+			<div>
+				<md-radio v-model="filterCat" v-on:click="checkRadioOnOff($index)" id="my-test4" name="my-group1" md-value="Aide au calcul">Aide au calcul</md-radio>
+			</div>
+		</form>
+
+		<hr>
+
+		<md-button class="md-raised   U--text-align-left" id="about" @click.native="openDialog('dialog1')">À propos</md-button>
+
+		<p>
+			Vous trouverez ci-contre une liste de {{ products.length }} outils susceptibles d'aider les enfants et adultes avec un diagnostic
+			de trouble d'apprentissage (dys-) ou de trouble de la communication.
+		</p>
+	</div>
+</div>

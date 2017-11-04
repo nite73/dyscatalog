@@ -1,0 +1,8 @@
+.S--main {
+	padding: 20px;
+
+	@include breakpoint-small {
+		padding: 40px;
+	}
+}
+

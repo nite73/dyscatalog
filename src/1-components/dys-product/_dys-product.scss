@@ -1,0 +1,156 @@
+.C--dys-product.md-theme-default.md-list {
+	width: 100%;
+	background-color: transparent;
+	margin: 0;
+	padding: 0;
+
+	.md-list-item .md-list-item-holder {
+		align-items: stretch;
+	}
+
+	.md-list-item {
+		margin-bottom: 0;
+	}
+
+	.dp--top {
+		display: flex;
+		align-items: center;
+    	justify-content: space-between;
+		margin-bottom: 20px;
+
+		h2 {
+			margin-bottom: 0;
+			font-size: 20px;
+		}
+	}
+
+	.dp--price-os {
+		font-size: 11px;
+		align-items: flex-start;
+		opacity: 0.5;
+	} 
+
+	.md-list-item .md-icon {
+		color: rgb(233, 252, 169);
+	}
+
+	.dp--icons-wrapper {
+		font-size: 11px;
+	}
+
+	a:not(.md-button):hover {
+		text-decoration: none;
+	}
+
+	a:not(.md-button) {
+		padding: 0 0 20px 0;
+
+		@include breakpoint-small {
+			padding: 20px 20px 20px 40px;
+		}
+	}
+
+	.dp--icons {
+		display: flex;
+    	align-items: center;
+		margin-bottom: 10px;
+		position: relative;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		i {
+			margin-right: 10px;
+		}
+	}
+
+	.dp--number-icon {
+		font-size: 11px;
+    	color: #145650;
+    	line-height: 15px;
+
+		ul {
+			margin: 0;
+			display: flex;
+		}
+
+		li {
+			list-style: none;
+			margin: 0 10px 0 0;
+			padding: 0;
+
+			&:after {
+				content: ","
+			}
+		}
+	}
+	
+	.md-button:hover:not([disabled]):not(.md-raised) {
+		background-color: hsla(0, 0%, 100%, 0.13);
+	}
+
+	.md-list-item .md-list-item-container {
+		margin-bottom: 20px;
+		padding: 0;
+
+		@include breakpoint-small {
+    		border-left: 1px solid rgba(0,0,0,.12);
+			margin-bottom: 0;
+		}
+	}
+
+	hr {
+		margin-left: 40px;
+	}
+
+	&:first-child {
+		.md-list-item .md-list-item-container {
+			padding-top: 0;
+		}
+	}
+
+	.md-list-text-container>:first-child {
+		color: $black;
+	}
+
+	.md-list-text-container>:nth-child(2):not(:last-child) {
+		margin-bottom: 10px;
+	}
+
+	.md-chips .md-input-container {
+		min-height: 0;
+		padding: 0;
+		margin: 0;
+	}
+
+	.md-input-container:after {
+		display: none
+	}
+
+	.dp--text-cat {
+		margin-bottom: 10px;
+	}
+
+	.md-theme-default.md-chip {
+		background-image: linear-gradient(-225deg, #20E2D7 0%, #F9FEA5 100%);
+		border: 1px solid #e4fcaa;
+	}
+
+}
+
+
+
+.fade-enter-active, .fade-leave-active, .fade-leave-to {
+	transition: opacity 1s, transform 1s;
+}
+
+.fade-enter {
+	backface-visibility: visible !important;
+	animation-name: flipInX;
+}
+
+.fade-leave-to, .fade-leave-to {
+	animation-name: flipOutX;
+	backface-visibility: visible !important;
+}

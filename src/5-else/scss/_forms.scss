@@ -1,0 +1,10 @@
+.md-input-container {
+	margin: -16px 0 20px 0;
+}
+
+.md-radio-container, label {
+	&:hover, 
+	&:focus {
+		cursor: pointer;
+	}
+}

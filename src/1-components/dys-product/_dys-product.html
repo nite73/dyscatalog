@@ -1,0 +1,44 @@
+<md-list class="custom-list md-triple-line   C--dys-product">
+	<md-list-item itemscope itemtype="http://schema.org/Product"   v-for="(product, index) in filteredList"   class="">
+		<a class="md-list-text-container" v-bind:href="product.url" target="_blanck">
+			<span class="dp--top">
+				<h2>
+					{{ product.name }}
+				</h2>
+				<span class="dp--price-os">
+					{{ product.price }} - {{ product.os }}
+				</span>
+			</span>
+
+			<span>
+				{{ product.description }}
+			</span>
+
+			<div class="dp--icons-wrapper">
+				<template v-for="categorie in product.categories">
+					<template v-if="categorie.subcat">
+						<div class="dp--text-cat">
+							{{ product.name }} propose {{ categorie.subcat.length }} {{ pluralize("outil", categorie.subcat.length) }} {{ pluralize("lié", categorie.subcat.length) }} à l'<span class="U--lowercase">{{ categorie.name }}</span>:
+						</div>
+					</template>
+
+					<div class="dp--icons">
+						<md-icon v-if="categorie.name === 'Aide à la lecture'">book</md-icon>
+						<md-icon v-else-if="categorie.name === 'Aide à l\'écriture'">edit</md-icon>
+						<md-icon v-else-if="categorie.name === 'Aide à la communication'">chat</md-icon>
+						<md-icon v-else>iso</md-icon>
+
+						<template v-if="categorie.subcat">
+							<span class="dp--number-icon">
+								<md-chips v-model="categorie.subcat" md-static>
+									<template scope="cat">{{ cat.value }}</template>
+								</md-chips>
+							</span>
+						</template>
+					</div>
+				</template>
+			</div>
+		</a>
+		<md-divider></md-divider>
+	</md-list-item>
+</md-list>

@@ -1,0 +1,14 @@
+.P--homepage {
+	md-list{
+		padding: 0;
+	}
+
+	md-item {
+		z-index: 1;
+		background-color: darken(rgb(255, 255, 255), 7);
+
+		&:nth-child(2n+1){
+			background-color: darken(rgb(255, 255, 255), 5);
+		}
+	}
+} 
