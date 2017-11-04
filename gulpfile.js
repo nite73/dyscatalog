@@ -71,6 +71,18 @@ function handleError(err) {
 //  gulp favicon                               : convert a square logo to all favicons.
 
 
+gulp.task('default', [
+	'move', 
+	'fonts',
+	'favicon',
+	'html-prod',
+	'scss-prod',
+	'jsHead-prod',
+	'jsFoot-prod',
+	'img-prod',
+] , function() {
+	console.log("finiiiiish")
+});
 
 
 /* *************************
@@ -97,15 +109,6 @@ function handleError(err) {
 /* *************************
 	B - CURRENT
 ************************* */
-	gulp.task('default', [
-			'scss-watch',
-			'html',
-			'jsHead',
-			'jsFoot',
-			'img',
-			'browser-sync'
-		] , function() {
-	});
 
 
 	/* 1 - SERVER */
@@ -140,14 +143,12 @@ function handleError(err) {
 
 	gulp.task('scss-prod', function () {
 		return gulp.src('src/**/*.scss')
-			.pipe(sourcemaps.init())
 			.pipe(bulkSass())
 			.pipe(sass().on('error', sass.logError))
 			.pipe(autoprefixer({
 				browsers: ['last 2 versions']
 			}))
 			.pipe(cssmin())
-			.pipe(sourcemaps.write('.'))
 			.pipe(rename({dirname: ''}))
 			.pipe(gulp.dest('dist/css/'))
 	});
@@ -167,10 +168,6 @@ function handleError(err) {
 				unformatted: ['pre', 'code'],
 				indent_inner_html: true
 			}))
-			.pipe(inlinesource({
-				compress: true,
-				rootpath: './dist/'
-			}).on('error', handleError))
 			.pipe(rename({dirname: ''}))
 			.pipe(gulp.dest('./dist/'))
 			.pipe(browserSync.stream());
@@ -197,10 +194,8 @@ function handleError(err) {
 
 	gulp.task('jsHead-prod', function () {
 		return gulp.src('src/5-else/ts/libs/**/*.js')
-			.pipe(sourcemaps.init())
 			.pipe(concat('script-head.js'))
 			.pipe(uglify())
-			.pipe(sourcemaps.write('.'))
 			.pipe(gulp.dest('dist/js'));
 	});
 
@@ -225,12 +220,10 @@ function handleError(err) {
 
 	gulp.task('jsFoot-prod', function () {
 		return gulp.src(['src/**/*.ts', '!src/**/*.d.ts', '!src/5-else/ts/libs/**/*.js'])
-			.pipe(sourcemaps.init())
 			.pipe(ts({
-				noImplicitAny: true,
+				noImplicitAny: false,
 				out: 'script-foot.js'
 			}))
-			.pipe(sourcemaps.write('.'))
 			.pipe(gulp.dest('dist/js'));
 	});
 
@@ -256,27 +249,27 @@ function handleError(err) {
 
 
 	/* 7 - WATCH */
-	watch('./src/**/*.html', function() {
-		gulp.start('html');
-	});
+	// watch('./src/**/*.html', function() {
+		// gulp.start('html');
+	// });
 
-	watch('./src/5-else/scss/inline.scss', function() {
-		gulp.start(['scss-watch']);
-	});
+// watch('./src/5-else/scss/inline.scss', function() {
+// gulp.start(['scss-watch']);
+	// });
 
-	watch('./src/**/*.ts', function() {
-		gulp.start('jsFoot');
-	});
+	// watch('./src/**/*.ts', function() {
+// gulp.start('jsFoot');
+	// });
 
-	watch(['./src/**/*.scss'], function() {
-		gulp.start(['scss-watch', 'html']);
-	});
+// watch(['./src/**/*.scss'], function() {
+	// 	gulp.start(['scss-watch', 'html']);
+// 	});
 
-	watch('./dist/css/*.css', function() {
-		gulp.start('reload-browser');
-	});
+	// watch('./dist/css/*.css', function() {
+	// 	gulp.start('reload-browser');
+// });
 
-	watch('./dist/js/script-foot.js').on("change", reload);
+// watch('./dist/js/script-foot.js').on("change", reload);
 
 
 
@@ -499,12 +492,13 @@ function handleError(err) {
 /* *************************
 	I - BUILD
 ************************* */
-	gulp.task('build', [
-			'move', 
-			'fonts',
-			'favicon',
-			'html-prod',
-			'scss-prod',
-			'img-prod',
+
+	gulp.task('dev', [
+			'scss-watch',
+			'html',
+			'jsHead',
+			'jsFoot',
+			'img',
+			'browser-sync'
 		] , function() {
 	});
