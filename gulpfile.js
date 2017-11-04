@@ -505,8 +505,6 @@ function handleError(err) {
 			'favicon',
 			'html-prod',
 			'scss-prod',
-			'jsHead-prod',
-			'jsFoot-prod',
 			'img-prod',
 		] , function() {
 	});
