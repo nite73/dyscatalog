@@ -40,7 +40,7 @@ let listOfProducts = [{
 	'description': '[FR] Une application basée sur un système de vocabulaire en réseau, évolutive et personnalisable. Une des plus complètes à ce jour, disponible en 19 langues!',
 	'id': 'avaz',
 	'name': 'Avaz',
-	'os': 'iPad',
+	'os': 'iPad, Android',
 	'price': '$',
 	'url': 'http://www.avazapp.fr/',
 }, {
@@ -81,7 +81,7 @@ let listOfProducts = [{
 	'description': 'Une application en ligne permettant de modifier un texte à partir de différents types de fichiers sources.',
 	'id': 'aidodys',
 	'name': 'Aidodys',
-	'os': 'PC, Mac',
+	'os': 'PC, Mac, Android',
 	'price': '$',
 	'url': 'http://www.aidodys.com/',
 }, {
@@ -92,7 +92,7 @@ let listOfProducts = [{
 	'description': 'Un logiciel de reconnaissance optique de caractères proposé en complément de WordQ et SpeakQ pour travailler sur tous les formats de fichiers',
 	'id': 'abbyy',
 	'name': 'Abbyy',
-	'os': 'PC, Mac',
+	'os': 'PC, Mac, Android, iPad, iPhone',
 	'price': '$$',
 	'url': 'http://www.medialexie.com/boutique_abbyy.html',
 }, {
@@ -134,7 +134,7 @@ let listOfProducts = [{
 	'description': 'Une synthèse vocale gratuite pour Mac et PC, pour lire tous les documents. Fonction OCR disponible en version payante.',
 	'id': 'natural-reader',
 	'name': 'Natural Reader',
-	'os': 'PC, Mac',
+	'os': 'PC, Mac, Android, iPad, iPhone',
 	'price': 'GRATUIT',
 	'url': 'http://www.naturalreaders.com/',
 }, {
@@ -166,7 +166,7 @@ let listOfProducts = [{
 	'description': 'Un outil très complet incluant une synthèse vocale de documents numériques ou numérisés, un correcteur et une prédiction orthographiques.',
 	'id': 'claroread',
 	'name': 'ClaroRead',
-	'os': 'PC, Mac',
+	'os': 'PC, Mac, iPad, iPhone',
 	'price': '$$$',
 	'url': 'http://www.claroread.ch/category/claroread-francais.php',
 }, {
@@ -240,7 +240,7 @@ let listOfProducts = [{
 	'description': 'La synthèse vocale reconnue pour lire tous vos documents sur les supports Apple.',
 	'id': 'voice-dream',
 	'name': 'Voice Dream',
-	'os': 'iPad, iPhone, iPod',
+	'os': 'iPad, iPhone, iPod, Android',
 	'price': '$',
 	'url': 'http://www.voicedream.com/',
 }, {
@@ -345,7 +345,7 @@ let listOfProducts = [{
 	'description': 'Pour maximiser vos succès en écriture de texte (complément à WordQ et SpeakQ).',
 	'id': 'antidote-9',
 	'name': 'Antidote 9',
-	'os': 'PC, Mac, Linux',
+	'os': 'PC, Mac, Linux, iPad, iPhone',
 	'price': '$$',
 	'url': 'https://mathetmots.com/eu-fr/boutique/produit/92/antidote-9',
 }, {
@@ -356,7 +356,7 @@ let listOfProducts = [{
 	'description': 'La reconnaissance vocale reconnue par les professionnels.',
 	'id': 'dragon-naturally-speaking',
 	'name': 'Dragon Naturally Speaking',
-	'os': 'PC, Mac',
+	'os': 'PC, Mac, Android',
 	'price': '$',
 	'url': 'http://www.nuance.fr/dragon/index.htm',
 }, {
@@ -416,7 +416,7 @@ let listOfProducts = [{
 	'description': 'Intègre une synthèse vocale pour les documents PDF. Fonction OCR disponible en version payante.',
 	'id': 'adobe-reader',
 	'name': 'Adobe Reader',
-	'os': 'PC, Mac, Android',
+	'os': 'PC, Mac, Android, iPad, iPhone',
 	'price': 'GRATUIT',
 	'url': 'http://get.adobe.com/fr/reader/otherversions/',
 }, {
@@ -443,7 +443,7 @@ let listOfProducts = [{
 	'description': 'Une reconnaissance vocale unique accessible en ligne.',
 	'id': 'talktyper',
 	'name': 'TalkTyper',
-	'os': 'PC, Mac, Linux',
+	'os': 'PC, Mac, Linux, Android',
 	'price': 'GRATUIT',
 	'url': 'https://talktyper.com/',
 }, {
@@ -470,17 +470,6 @@ let listOfProducts = [{
 	'url': 'http://www.ac-limoges.fr/ia87/spip.php?article295',
 }, {
 	'categories': [{
-		'name': 'Aide à la lecture',
-		'subcat': ['Multi-langues'],
-	}],
-	'description': 'Permet d\'éliminer les éléments non pertinents d\'une page web pour en faciliter la lecture.',
-	'id': 'clearly',
-	'name': 'Clearly',
-	'os': 'PC, Mac, Linux',
-	'price': 'GRATUIT',
-	'url': 'http://evernote.com/clearly/guide/',
-}, {
-	'categories': [{
 		'name': 'Aide à l\'écriture',
 		'subcat': ['Prédicteur orthographique', 'Multi-langues'],
 	}],
@@ -497,7 +486,7 @@ let listOfProducts = [{
 	'description': 'Un logiciel pour faciliter l\'accès aux mathématiques pour les dyspraxiques.',
 	'id': 'geogebra',
 	'name': 'Geogebra',
-	'os': 'PC, Mac, Linux',
+	'os': 'PC, Mac, Linux, Android, iPhone, iPad',
 	'price': 'GRATUIT',
 	'url': 'http://www.geogebra.org/cms/fr/',
 }, {
@@ -520,7 +509,7 @@ let listOfProducts = [{
 	'os': 'iPad, iPhone, iPod touch',
 	'price': 'GRATUIT',
 	'url': 'http://www.ablenetinc.com/Assistive-Technology/Communication/SoundingBoard',
-}, {
+}, { 
 	'categories': [{
 		'name': 'Aide à la communication',
 	}],
@@ -591,7 +580,7 @@ let listOfProducts = [{
 	'description': 'AudioNote allie la fonctionnalité d\'un bloc-notes et d’un enregistreur de voix',
 	'id': 'audionote',
 	'name': 'AudioNote',
-	'os': 'iPad, iPhone',
+	'os': 'iPad, iPhone, Android',
 	'price': '$',
 	'url': 'https://itunes.apple.com/ca/app/audionote-bloc-notes-et-enregistreur-vocal/id369820957?l=fr&mt=8',
 }, {
@@ -611,7 +600,7 @@ let listOfProducts = [{
 	'description': 'Une application gratuite qui permet une communication alternative dans plusieurs langues',
 	'id': 'let-me-talk',
 	'name': 'Let Me Talk',
-	'os': 'Android',
+	'os': 'Android, iPhone, iPad',
 	'price': 'GRATUIT',
 	'url': 'http://www.letmetalk.info/fr',
 }, {
@@ -642,7 +631,7 @@ let listOfProducts = [{
 	'description': 'Une application disponible en plusieurs langues et saluée par plusieurs récompenses',
 	'id': 'grace-app',
 	'name': 'Grace App',
-	'os': 'iPhone, iPad',
+	'os': 'iPhone, iPad, Android',
 	'price': '$',
 	'url': 'http://www.graceapp.com/',
 }];
