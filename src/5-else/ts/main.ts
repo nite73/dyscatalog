@@ -616,7 +616,7 @@ let listOfProducts = [{
 }, {
 	'categories': [{
 		'name': 'Aide à l’écriture',
-		'subcat': ['Aide à la communication'],
+		'subcat': ['Correcteur orthographique'],
 	}],
 	'description': 'Une gamme de produits disponibles sur un ordinateur ou un appareil électronique portatif, avec un mode opératoire comparable à Antidote',
 	'id': 'cordial',
@@ -634,6 +634,16 @@ let listOfProducts = [{
 	'os': 'iPhone, iPad, Android',
 	'price': '$',
 	'url': 'http://www.graceapp.com/',
+}, {
+	'categories': [{
+		'name': 'Aide à la communication',
+	}],
+	'description': '[FR] Une application fonctionnant en anglais et français pour former des phrases complètes à partir de pictogrammes',
+	'id': 'aac parole',
+	'name': 'AAC parole',
+	'os': 'Android',
+	'price': 'FREE',
+	'url': 'https://play.google.com/store/apps/details?id=com.epfl.android.aac_speech&hl=fr_CA',
 }];
 
 new Vue({
