@@ -615,7 +615,7 @@ let listOfProducts = [{
 	'url': 'https://itunes.apple.com/fr/app/icomm/id351726761?mt=8',
 }, {
 	'categories': [{
-		'name': 'Aide à l’écriture',
+		'name': 'Aide à l\'écriture',
 		'subcat': ['Correcteur orthographique'],
 	}],
 	'description': 'Une gamme de produits disponibles sur un ordinateur ou un appareil électronique portatif, avec un mode opératoire comparable à Antidote',
